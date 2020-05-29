@@ -2,12 +2,11 @@ import React, { Component } from 'react';
 import './App.css';
 
 class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <h1>Hello, I am creating my first React app!</h1>
-      </div>
-    );
+  render() 
+  {
+      const css = { className : 'App' };
+      const header = React.createElement('h1', null, 'Hello from programatic!');
+      return React.createElement('div', css, header);
   }
 }
 
