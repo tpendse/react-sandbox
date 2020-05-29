@@ -1,12 +1,17 @@
 import React, { Component } from 'react';
 import './App.css';
+import Person from './Person/Person'
 
 class App extends Component {
   render() 
   {
-      const css = { className : 'App' };
-      const header = React.createElement('h1', null, 'Hello from programatic!');
-      return React.createElement('div', css, header);
+    return (
+      <div className="App">
+        <h1>Hello, from JSX!</h1>
+        <p>How're you doing?</p>
+        <Person />
+      </div>
+    );
   }
 }
 

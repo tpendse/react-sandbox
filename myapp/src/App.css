@@ -4,6 +4,12 @@
   font-style: oblique;
 }
 
+.Person {
+  text-align: center;
+  color: hotpink;
+  font-style: initial;
+}
+
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 80px;
