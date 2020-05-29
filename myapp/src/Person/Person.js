@@ -8,6 +8,7 @@ const person = (props) => {
         <div>
             <h3 className={css_class}>I'm {props.name}, and I am {is_child ? "a" : "an"} {label}, {props.age} years old!</h3>
             <p className="Hobbies">{props.children}</p>
+            <h5 onClick={props.clickHandler} className="Hobbies">Next -></h5>
         </div>
     );
 }

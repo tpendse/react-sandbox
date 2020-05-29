@@ -25,11 +25,12 @@ class App extends Component {
     return (
       <div className="App">
         <h1>Hello, from JSX!</h1>
-        <p>How're you doing?</p>
-
-        <button onClick={this.switchNameHandler}>Switch name</button>
-
-        <Person name={this.state.name} age={this.state.age}>My hobby is {this.state.hobbies}</Person>
+        <Person 
+          name={this.state.name} 
+          age={this.state.age}
+          clickHandler={this.switchNameHandler}>
+            My hobby is {this.state.hobbies}
+          </Person>
 
       </div>
     );
