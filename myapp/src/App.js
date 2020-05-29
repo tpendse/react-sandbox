@@ -3,16 +3,22 @@ import './App.css';
 import Person from './Person/Person'
 
 class App extends Component {
-  state = {
-    people: [
+  all_states = [
       { name: 'Tejas',  age: 32, hobbies: 'riding a bike' },
       { name: 'Neha',   age: 30, hobbies: 'reading books' },
       { name: 'Anay',   age: 6                            },
-    ]
-  }
+    ];
+
+  default_state = { name: 'Tejas',  age: 32, hobbies: 'riding a bike' };
+
+  count = 0;
+
+  state = this.default_state;
 
   switchNameHandler = () => {
-    console.log('Was clicked!');
+    this.count += 1;
+    const new_state = this.all_states[this.count % 3];
+    this.setState(new_state);
   }
 
   render() {
@@ -23,9 +29,8 @@ class App extends Component {
 
         <button onClick={this.switchNameHandler}>Switch name</button>
 
-        <Person name={this.state.people[0].name} age={this.state.people[0].age}>My hobby is {this.state.people[0].hobbies}</Person>
-        <Person name={this.state.people[1].name} age={this.state.people[1].age}>My hobby is {this.state.people[1].hobbies}</Person>
-        <Person name={this.state.people[2].name} age={this.state.people[2].age}>My hobby is {this.state.people[2].hobbies}</Person>
+        <Person name={this.state.name} age={this.state.age}>My hobby is {this.state.hobbies}</Person>
+
       </div>
     );
   }
