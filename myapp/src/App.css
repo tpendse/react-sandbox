@@ -6,8 +6,12 @@
 
 .Person {
   text-align: center;
-  color: hotpink;
+  color: blue;
   font-style: initial;
+}
+
+.Child {
+  color: hotpink;
 }
 
 .App-logo {
