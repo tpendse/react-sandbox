@@ -9,7 +9,7 @@ class App extends Component {
       { name: 'Anay',   age: 6                            },
     ];
 
-  default_state = { name: 'Tejas',  age: 32, hobbies: 'riding a bike' };
+  default_state = this.all_states[0];
 
   count = 0;
 
@@ -21,14 +21,21 @@ class App extends Component {
     this.setState(new_state);
   }
 
+  debugCount = 0;
+
+  nameInputHandler = (event) => {
+    let cache = this.state;
+    cache.name = event.target.value;
+    this.setState(cache);
+  }
+
   render() {
     return (
       <div className="App">
         <h1>Hello, from JSX!</h1>
         <Person 
-          name={this.state.name} 
-          age={this.state.age}
-          clickHandler={this.switchNameHandler}>
+          name={this.state.name} age={this.state.age}
+          clickHandler={this.switchNameHandler} inputChange={this.nameInputHandler}>
             My hobby is {this.state.hobbies}
           </Person>
 
