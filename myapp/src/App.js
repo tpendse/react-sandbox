@@ -30,14 +30,26 @@ class App extends Component {
   }
 
   render() {
+    
+    const buttonStyle = {
+      border: '1px #eee',
+      cursor: 'pointer',
+      padding: '8px',
+      borderRadius: '8px',
+      boxShadow: '0 5px 5px #ccc',
+    }
     return (
       <div className="App">
-        <h1>Hello, from JSX!</h1>
+        <h1 className="App-header">Hello, from JSX!</h1>
         <Person 
           name={this.state.name} age={this.state.age}
-          clickHandler={this.switchNameHandler} inputChange={this.nameInputHandler}>
+          inputChange={this.nameInputHandler}>
             My hobby is {this.state.hobbies}
           </Person>
+          
+          <button
+            style={buttonStyle} 
+            onClick={this.switchNameHandler}>Next -></button>
 
       </div>
     );

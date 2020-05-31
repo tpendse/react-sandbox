@@ -1,13 +1,7 @@
 .App {
   text-align: center;
-  color:gold;
+  color:rgb(0, 162, 255);
   font-style: oblique;
-}
-
-.Person {
-  text-align: center;
-  color: blue;
-  font-style: initial;
 }
 
 .Hobbies {
@@ -15,7 +9,7 @@
   font-size: 22;
 }
 
-.Child {
+.Message {
   color: hotpink;
 }
 
@@ -25,10 +19,8 @@
 }
 
 .App-header {
-  background-color: #222;
-  height: 150px;
   padding: 20px;
-  color: white;
+  color: red;
 }
 
 .App-title {
