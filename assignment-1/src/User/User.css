@@ -1,0 +1,19 @@
+.UserInput {
+    width: 60%;
+    margin: 16px auto;
+    border: 1px solid lightblue;
+    box-shadow: 0 2px 5px lightskyblue;
+    padding: 16px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.UserOutput {
+    width: 60%;
+    margin: 16px auto;
+    border: 1px solid lightgreen;
+    box-shadow: 0 2px 5px lightpink;
+    padding: 16px;
+    text-align: center;
+    border-radius: 5px;
+}
