@@ -3,21 +3,23 @@ import './App.css';
 import Person from './Person/Person'
 
 class App extends Component {
-  all_states = [
+  all_persons = [
       { name: 'Tejas',  age: 32, hobbies: 'riding a bike' },
       { name: 'Neha',   age: 30, hobbies: 'reading books' },
       { name: 'Anay',   age: 6                            },
     ];
 
-  default_state = this.all_states[0];
+  default_person = this.all_persons[0];
 
   count = 0;
 
-  state = this.default_state;
+  state = {
+    person: this.default_person
+  };
 
   switchNameHandler = () => {
     this.count += 1;
-    const new_state = this.all_states[this.count % 3];
+    const new_state = this.all_persons[this.count % 3];
     this.setState(new_state);
   }
 
@@ -25,7 +27,7 @@ class App extends Component {
 
   nameInputHandler = (event) => {
     let cache = this.state;
-    cache.name = event.target.value;
+    cache.person.name = event.target.value;
     this.setState(cache);
   }
 
@@ -42,9 +44,9 @@ class App extends Component {
       <div className="App">
         <h1 className="App-header">Hello, from JSX!</h1>
         <Person 
-          name={this.state.name} age={this.state.age}
+          name={this.state.person.name} age={this.state.person.age}
           inputChange={this.nameInputHandler}>
-            My hobby is {this.state.hobbies}
+            My hobby is {this.state.person.hobbies}
           </Person>
           
           <button
