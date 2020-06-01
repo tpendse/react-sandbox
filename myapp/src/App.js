@@ -14,7 +14,8 @@ class App extends Component {
   count = 0;
 
   state = {
-    person: this.default_person
+    person: this.default_person,
+    show_persons: true
   };
 
   switchNameHandler = () => {
@@ -31,6 +32,10 @@ class App extends Component {
     this.setState(cache);
   }
 
+  visibilityToggleHandler = () => {
+    this.setState({ show_persons: !this.state.show_persons });
+  }
+
   render() {
     
     const buttonStyle = {
@@ -40,19 +45,28 @@ class App extends Component {
       borderRadius: '8px',
       boxShadow: '0 5px 5px #ccc',
     }
+
     return (
       <div className="App">
         <h1 className="App-header">Hello, from JSX!</h1>
-        <Person 
-          name={this.state.person.name} age={this.state.person.age}
-          inputChange={this.nameInputHandler}>
-            My hobby is {this.state.person.hobbies}
-          </Person>
-          
-          <button
-            style={buttonStyle} 
-            onClick={this.switchNameHandler}>Next -></button>
+        <button onClick={this.visibilityToggleHandler} style={buttonStyle}>Toggle visibility</button>
 
+        {
+          this.state.show_persons ?
+            <div>
+
+              <Person
+                name={this.state.person.name} age={this.state.person.age}
+                inputChange={this.nameInputHandler}>
+                My hobby is {this.state.person.hobbies}
+              </Person>
+
+              <button
+                style={buttonStyle}
+                onClick={this.switchNameHandler}>Next -></button>
+
+            </div> : null
+        }
       </div>
     );
   }
