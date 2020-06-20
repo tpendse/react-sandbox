@@ -63,7 +63,7 @@ class App extends Component {
 
               <button
                 style={buttonStyle}
-                onClick={this.switchNameHandler}>Next -></button>
+                onClick={this.switchNameHandler}>Next -&gt;</button>
 
             </div> : null
         }
