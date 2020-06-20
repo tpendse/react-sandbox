@@ -4,9 +4,11 @@ import Person from './Person/Person'
 
 class App extends Component {
   all_persons = [
-      { id: '9vaU', name: 'Tejas',  age: 32, hobbies: 'riding a bike' },
-      { id: '9oA3', name: 'Neha',   age: 30, hobbies: 'reading books' },
-      { id: 'UWdN', name: 'Anay',   age: 6                            },
+      { id: '9vaU', name: 'Tejas',    age: 32, hobbies: 'riding a bike'               },
+      { id: '9oA3', name: 'Neha',     age: 30, hobbies: 'reading books'               },
+      { id: 'UWdN', name: 'Anay',     age: 6                                          },
+      { id: '0sWJ', name: 'Ghana',    age: 66, hobbies: 'painting with watercolors'   },
+      { id: 'Fdhz', name: 'Manasi',   age: 59, hobbies: 'writing poetry'              },
     ];
 
   default_person = this.all_persons[0];
