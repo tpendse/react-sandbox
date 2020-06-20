@@ -18,18 +18,11 @@ class App extends Component {
     show_persons: true
   };
 
-  switchNameHandler = () => {
-    this.count += 1;
-    const new_state = this.all_persons[this.count % 3];
-    this.setState(new_state);
-  }
-
   debugCount = 0;
 
-  nameInputHandler = (event) => {
-    let cache = this.state;
-    cache.person.name = event.target.value;
-    this.setState(cache);
+  deletePersonHandler = (personIndex) => {
+    this.all_persons.splice(personIndex, 1);
+    this.setState({isDirty: true});
   }
 
   visibilityToggleHandler = () => {
@@ -46,24 +39,21 @@ class App extends Component {
       boxShadow: '0 5px 5px #ccc',
     }
 
+    this.state.isDirty = false;
+
     let persons = null;
 
     if(this.state.show_persons) {
       persons = (
         <div>
-          {this.all_persons.map(person => {
-            return <Person 
+          {this.all_persons.map((person, index) => {
+            return <Person
               name={person.name} 
-              age={person.age}>
+              age={person.age}
+              deleteHandler={() => this.deletePersonHandler(index)}>
                 My hobby is {person.hobbies}
                 </Person>
           })}
-          {/*<Person
-            name={this.state.person.name} age={this.state.person.age}
-            inputChange={this.nameInputHandler}>
-            My hobby is {this.state.person.hobbies}
-          </Person>
-          */}
         </div>
       );
     }
