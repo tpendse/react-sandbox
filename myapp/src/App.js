@@ -20,13 +20,21 @@ class App extends Component {
 
   debugCount = 0;
 
+  reRender = () => { this.setState({isDirty: true }) }
+
   deletePersonHandler = (personIndex) => {
     this.all_persons.splice(personIndex, 1);
-    this.setState({isDirty: true});
+    this.reRender();
   }
 
   visibilityToggleHandler = () => {
     this.setState({ show_persons: !this.state.show_persons });
+  }
+
+  nameChangeHandler = (event, personId) => {
+    let target = this.all_persons.find(p => { return p.id === personId; });
+    target.name = event.target.value;
+    this.reRender();
   }
 
   render() {
@@ -39,8 +47,6 @@ class App extends Component {
       boxShadow: '0 5px 5px #ccc',
     }
 
-    this.state.isDirty = false;
-
     let persons = null;
 
     if(this.state.show_persons) {
@@ -51,6 +57,7 @@ class App extends Component {
               key={person.id}
               name={person.name} 
               age={person.age}
+              inputChange={event => this.nameChangeHandler(event, person.id)}
               deleteHandler={() => this.deletePersonHandler(index)}>
                 My hobby is {person.hobbies}
                 </Person>

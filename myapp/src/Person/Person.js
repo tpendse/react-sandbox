@@ -10,6 +10,7 @@ const person = (props) => {
             <h3>I'm {props.name}, and I am {is_child ? "a" : "an"} {label}, {props.age} years old!</h3>
             <p className="Hobbies">{props.children}</p>
             <button onClick={props.deleteHandler}>Delete</button>
+            <input type="text" onChange={props.inputChange} value={props.name} />
         </div>
     );
 }
