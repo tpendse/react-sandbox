@@ -4,9 +4,9 @@ import Person from './Person/Person'
 
 class App extends Component {
   all_persons = [
-      { name: 'Tejas',  age: 32, hobbies: 'riding a bike' },
-      { name: 'Neha',   age: 30, hobbies: 'reading books' },
-      { name: 'Anay',   age: 6                            },
+      { id: '9vaU', name: 'Tejas',  age: 32, hobbies: 'riding a bike' },
+      { id: '9oA3', name: 'Neha',   age: 30, hobbies: 'reading books' },
+      { id: 'UWdN', name: 'Anay',   age: 6                            },
     ];
 
   default_person = this.all_persons[0];
@@ -48,6 +48,7 @@ class App extends Component {
         <div>
           {this.all_persons.map((person, index) => {
             return <Person
+              key={person.id}
               name={person.name} 
               age={person.age}
               deleteHandler={() => this.deletePersonHandler(index)}>
