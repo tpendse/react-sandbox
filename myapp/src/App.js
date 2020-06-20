@@ -46,27 +46,28 @@ class App extends Component {
       boxShadow: '0 5px 5px #ccc',
     }
 
+    let persons = null;
+
+    if(this.state.show_persons) {
+      persons = (
+        <div>
+          <Person
+            name={this.state.person.name} age={this.state.person.age}
+            inputChange={this.nameInputHandler}>
+            My hobby is {this.state.person.hobbies}
+          </Person>
+          <button
+            style={buttonStyle}
+            onClick={this.switchNameHandler}>Next -&gt;</button>
+        </div>
+      );
+    }
+
     return (
       <div className="App">
         <h1 className="App-header">Hello, from JSX!</h1>
         <button onClick={this.visibilityToggleHandler} style={buttonStyle}>Toggle visibility</button>
-
-        {
-          this.state.show_persons ?
-            <div>
-
-              <Person
-                name={this.state.person.name} age={this.state.person.age}
-                inputChange={this.nameInputHandler}>
-                My hobby is {this.state.person.hobbies}
-              </Person>
-
-              <button
-                style={buttonStyle}
-                onClick={this.switchNameHandler}>Next -&gt;</button>
-
-            </div> : null
-        }
+        {persons}
       </div>
     );
   }
